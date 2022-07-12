@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static%}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>first landing</title>
+		<link rel="stylesheet" href="{% static 'semantic.css' %}">
+	</head>
+	<body>
+		<div class="ui inverted fixed menu">
+			<a href="" class="item">Home</a>
+			<a href="" class="item">About</a>
+			<a href="" class="item">More</a>
+		</div>
+		<div class="ui vertical segment">
+			<div class="ui image">
+				<img src="{% static 'img/pink.png' %}">
+			</div>
+		</div>
+		
+		<div class="ui basic segment"> <!-- basic 去掉黑线 -->
+			<div class="ui grid">
+				<div class="three wide column" style="background-color: #000100">
+					<div class="one high row">
+						<div class="ui inverted vertical segment">
+							<center>目录一</center>
+						</div>
+					</div>
+					<div class="one high row">
+						<div class="ui inverted vertical segment">
+							<center>目录二</center>
+						</div>
+					</div>
+				</div>
+				<div class="ten wide column">
+					{% for article in article_list%}
+						<h1 class="ui header">
+							{{article.title}}
+						</h1>
+	<!--					<p>导演: Harald Braun</p>-->
+	<!--					<p>编剧: Harald Braun / Herbert Witt</p>-->
+	<!--					<p>主演: Hilde Krahl / Dieter Borsche / Werner Hinz / Mathias Wieman / Käthe Haack / Dorothea Wieck / Therese Giehse / Paul Bildt / Heinrich Gretler / Paul Henckels / Erich Ponto / Alfred Neugebauer / Wolfgang Liebeneiner / Michael Lenz / Else Ehser</p>-->
+	<!--					<p>类型: 剧情 / 传记</p>-->
+	<!--					<p>语言: 德语</p>-->
+						<p>
+							{{article.content|truncatewords:"2"}}
+						</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="ui vertical inverted segment">
+			<div class="ui grid">
+				<div class="four wide column">
+					<div class="ui vertical inverted text menu">
+						<div class="item">Writer: 为君执笔</div>
+						<div class="item">Email</div>
+						<div class="item">Tel</div>
+					</div>
+				</div>
+				<div class="four wide column">
+					<div class="ui vertical inverted text menu">
+						<div class="item">Company</div>
+						<div class="item">Information</div>
+						<div class="item">Report</div>
+					</div>
+				</div>
+				<div class="four wide column">
+					<div class="ui vertical inverted text menu">
+						<div class="item">Caution</div>
+						<div class="item">Help</div>
+						<a href="" class="item">Back</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>
